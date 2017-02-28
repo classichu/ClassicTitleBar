@@ -35,6 +35,14 @@ public class ClassicTitleBar extends RelativeLayout {
     private TextView mRightText;
     private TextView mCenterText;
 
+    private Drawable mLeftDrawable;
+    private Drawable mCenterDrawable;
+    private Drawable mRightDrawable;
+
+    private boolean mLeftDrawableExchange;
+    private boolean mCenterDrawableExchange;
+    private boolean mRightDrawableExchange;
+
     public ClassicTitleBar(Context context) {
         this(context, null);
     }
@@ -57,15 +65,18 @@ public class ClassicTitleBar extends RelativeLayout {
 
     private void initDefCfg() {
         //
-       //### setBackgroundColor(Color.parseColor("#f8f8f8"));
+        //### setBackgroundColor(Color.parseColor("#f8f8f8"));
     }
 
     public ClassicTitleBar setLeftImageClassicBack() {
-        setLeftImage(ImageOrVectorResHelper.getDrawable(getContext(), R.drawable.ic_arrow_back_black_24dp));
+        mLeftDrawable = ImageOrVectorResHelper.getDrawable(getContext(), R.drawable.ic_arrow_back_black_24dp);
+        setLeftImage();
         return this;
     }
+
     public ClassicTitleBar setRightImageClassicMore() {
-        setRightImage(ImageOrVectorResHelper.getDrawable(getContext(), R.drawable.ic_more_vert_black_24dp));
+        mRightDrawable = ImageOrVectorResHelper.getDrawable(getContext(), R.drawable.ic_more_vert_black_24dp);
+        setRightImage();
         return this;
     }
 
@@ -73,6 +84,7 @@ public class ClassicTitleBar extends RelativeLayout {
 
         for (int i = 0; i < typedArray.getIndexCount(); i++) {
             int index = typedArray.getIndex(i);
+            //==================left and==============
             if (index == R.styleable.ClassicTitleBar_classic_leftText) {
                 setLeftText(typedArray.getText(index));
 
@@ -86,7 +98,7 @@ public class ClassicTitleBar extends RelativeLayout {
                 setLeftAndRightTextColor(typedArray.getColor(index, Color.WHITE));
 
             } else if (index == R.styleable.ClassicTitleBar_classic_leftAndRightTextSize) {
-                int defValue=getResources().getDimensionPixelSize(R.dimen.classic_text_size_primary);
+                int defValue = getResources().getDimensionPixelSize(R.dimen.classic_text_size_primary);
                 /**
                  * getDimension和getDimensionPixelOffset差不多，前者返回float，后者返回int
                  * 如果单位是dp或sp，则需要将其乘以density。如果是px，则不乘。
@@ -102,9 +114,11 @@ public class ClassicTitleBar extends RelativeLayout {
                 mLeftText.setCompoundDrawablePadding(typedArray.getDimensionPixelSize(index,
                         SizeTool.dp2px(getContext(), 2)));
 
+            } else if (index == R.styleable.ClassicTitleBar_classic_leftDrawableExchange) {
+                setLeftImageExchange(typedArray.getBoolean(index, false));
             } else if (index == R.styleable.ClassicTitleBar_classic_leftMaxWidth) {
                 setLeftMaxWidth(typedArray.getDimensionPixelSize(index,
-                        SizeTool.dp2px(getContext(), 80)));
+                        SizeTool.dp2px(getContext(), 100)));
 
                 //==================right==============
             } else if (index == R.styleable.ClassicTitleBar_classic_rightText) {
@@ -120,9 +134,11 @@ public class ClassicTitleBar extends RelativeLayout {
                 mRightText.setCompoundDrawablePadding(typedArray.getDimensionPixelSize(index,
                         SizeTool.dp2px(getContext(), 2)));
 
+            } else if (index == R.styleable.ClassicTitleBar_classic_rightDrawableExchange) {
+                setRightImageExchange(typedArray.getBoolean(index, false));
             } else if (index == R.styleable.ClassicTitleBar_classic_rightMaxWidth) {
                 setRightMaxWidth(typedArray.getDimensionPixelSize(index,
-                        SizeTool.dp2px(getContext(), 80)));
+                        SizeTool.dp2px(getContext(), 100)));
 
                 //==================center==============
             } else if (index == R.styleable.ClassicTitleBar_classic_centerText) {
@@ -156,8 +172,10 @@ public class ClassicTitleBar extends RelativeLayout {
 
             } else if (index == R.styleable.ClassicTitleBar_classic_centerMaxWidth) {
                 setCenterMaxWidth(typedArray.getDimensionPixelSize(index,
-                        SizeTool.dp2px(getContext(), 160)));
+                        SizeTool.dp2px(getContext(), 180)));
 
+            } else if (index == R.styleable.ClassicTitleBar_classic_centerDrawableExchange) {
+                setCenterImageExchange(typedArray.getBoolean(index, false));
             }
         }
     }
@@ -177,8 +195,21 @@ public class ClassicTitleBar extends RelativeLayout {
         return this;
     }
 
-    public ClassicTitleBar setCenterTextSize(int size) {
-        mCenterText.setTextSize(size);
+    public ClassicTitleBar setRightImageExchange(boolean exchange) {
+        mRightDrawableExchange = exchange;
+        setRightImage();
+        return this;
+    }
+
+    public ClassicTitleBar setCenterImageExchange(boolean exchange) {
+        mCenterDrawableExchange = exchange;
+        setCenterImage();
+        return this;
+    }
+
+    public ClassicTitleBar setLeftImageExchange(boolean exchange) {
+        mLeftDrawableExchange = exchange;
+        setLeftImage();
         return this;
     }
 
@@ -215,11 +246,16 @@ public class ClassicTitleBar extends RelativeLayout {
         return this;
     }
 
+    public ClassicTitleBar setCenterTextSize(int size) {
+        mCenterText.setTextSize(TypedValue.COMPLEX_UNIT_PX,size);
+        return this;
+    }
+
     public ClassicTitleBar setLeftText(CharSequence text) {
         if (TextUtils.isEmpty(text)) {
             mLeftText.setText("");
             //
-            if (mLeftText.getCompoundDrawables()[0] == null) {
+            if (mLeftDrawable == null) {
                 mLeftText.setVisibility(GONE);
             } else {
                 mLeftText.setVisibility(VISIBLE);
@@ -236,7 +272,7 @@ public class ClassicTitleBar extends RelativeLayout {
         if (TextUtils.isEmpty(text)) {
             mRightText.setText("");
             //
-            if (mRightText.getCompoundDrawables()[2] == null) {
+            if (mRightDrawable == null) {
                 mRightText.setVisibility(GONE);
             } else {
                 mRightText.setVisibility(VISIBLE);
@@ -253,7 +289,7 @@ public class ClassicTitleBar extends RelativeLayout {
         if (TextUtils.isEmpty(text)) {
             mCenterText.setText("");
             //
-            if (mCenterText.getCompoundDrawables()[0] == null) {
+            if (mCenterDrawable == null) {
                 mCenterText.setVisibility(GONE);
             } else {
                 mCenterText.setVisibility(VISIBLE);
@@ -266,76 +302,103 @@ public class ClassicTitleBar extends RelativeLayout {
         return this;
     }
 
+    public ClassicTitleBar setRightImage(Drawable drawable) {
+        mRightDrawable = drawable;
+        setRightImage();
+        return this;
+    }
+
+    public ClassicTitleBar setCenterImage(Drawable drawable) {
+        mCenterDrawable = drawable;
+        setCenterImage();
+        return this;
+    }
+
     public ClassicTitleBar setLeftImage(Drawable drawable) {
-        if (drawable != null) {
+        mLeftDrawable = drawable;
+        setLeftImage();
+        return this;
+    }
+
+    private void setLeftImage() {
+        if (mLeftDrawable != null) {
             if (TextUtils.isEmpty(mLeftText.getText())) {
                 //
                 mLeftText.setVisibility(GONE);
                 mLeftText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 //
                 mLeftImage.setVisibility(VISIBLE);
-                mLeftImage.setImageDrawable(drawable);
+                mLeftImage.setImageDrawable(mLeftDrawable);
             } else {
                 //
                 mLeftText.setVisibility(VISIBLE);
                 //mLeftText.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                mLeftText.setCompoundDrawables(drawable, null, null, null);
+                mLeftDrawable.setBounds(0, 0, mLeftDrawable.getIntrinsicWidth(), mLeftDrawable.getIntrinsicHeight());
+                if (mLeftDrawableExchange) {
+                    mLeftText.setCompoundDrawables(null, null, mLeftDrawable, null);
+                } else {
+                    mLeftText.setCompoundDrawables(mLeftDrawable, null, null, null);
+                }
                 //
                 mLeftImage.setVisibility(GONE);
             }
         } else {
             mLeftImage.setVisibility(GONE);
         }
-        return this;
     }
 
-    public ClassicTitleBar setRightImage(Drawable drawable) {
-        if (drawable != null) {
+    private void setRightImage() {
+        if (mRightDrawable != null) {
             if (TextUtils.isEmpty(mRightText.getText())) {
                 //
                 mRightText.setVisibility(GONE);
                 mRightText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 //
                 mRightImage.setVisibility(VISIBLE);
-                mRightImage.setImageDrawable(drawable);
+                mRightImage.setImageDrawable(mRightDrawable);
             } else {
                 //
                 mRightText.setVisibility(VISIBLE);
-                //mLeftText.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                mRightText.setCompoundDrawables(null, null, drawable, null);
+                //mRightText.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
+                mRightDrawable.setBounds(0, 0, mRightDrawable.getIntrinsicWidth(), mRightDrawable.getIntrinsicHeight());
+                if (mRightDrawableExchange) {
+                    mRightText.setCompoundDrawables(mRightDrawable, null, null, null);
+                } else {
+                    mRightText.setCompoundDrawables(null, null, mRightDrawable, null);
+                }
                 //
                 mRightImage.setVisibility(GONE);
             }
         } else {
             mRightImage.setVisibility(GONE);
         }
-        return this;
     }
 
-    public ClassicTitleBar setCenterImage(Drawable drawable) {
-        if (drawable != null) {
+    private void setCenterImage() {
+        if (mCenterDrawable != null) {
             if (TextUtils.isEmpty(mCenterText.getText())) {
                 //
                 mCenterText.setVisibility(GONE);
                 mCenterText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 //
                 mCenterImage.setVisibility(VISIBLE);
-                mCenterImage.setImageDrawable(drawable);
+                mCenterImage.setImageDrawable(mCenterDrawable);
             } else {
                 //
                 mCenterText.setVisibility(VISIBLE);
-                //mLeftText.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                mCenterText.setCompoundDrawables(drawable, null, null, null);
+                //mCenterText.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
+                mCenterDrawable.setBounds(0, 0, mCenterDrawable.getIntrinsicWidth(), mCenterDrawable.getIntrinsicHeight());
+                if (mCenterDrawableExchange) {
+                    mCenterText.setCompoundDrawables(mCenterDrawable, null, null, null);
+                } else {
+                    mCenterText.setCompoundDrawables(null, null, mCenterDrawable, null);
+                }
                 //
                 mCenterImage.setVisibility(GONE);
             }
         } else {
             mCenterImage.setVisibility(GONE);
         }
-        return this;
     }
 
     private void init(Context context) {

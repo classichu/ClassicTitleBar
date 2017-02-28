@@ -13,6 +13,96 @@
         app:classic_centerText="标题"
         app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp" />
 
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerText="标题"
+        app:classic_leftDrawable="@drawable/ic_arrow_back_black_24dp"
+        app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerText="标题"
+        app:classic_leftText="返回"
+        app:classic_rightText="菜单" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerText="标题"
+        app:classic_centerTextColor="@android:color/holo_red_dark"
+        app:classic_centerTextSize="22dp"
+        app:classic_leftAndRightTextColor="@android:color/holo_orange_light"
+        app:classic_leftAndRightTextSize="20dp"
+        app:classic_leftText="返回"
+        app:classic_rightText="菜单" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerText="标题"
+        app:classic_leftDrawable="@drawable/ic_chevron_left_black_24dp"
+        app:classic_leftText="返回"
+        app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp"
+        app:classic_rightText="菜单" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerText="标题"
+        app:classic_leftDrawable="@drawable/ic_chevron_left_black_24dp"
+        app:classic_leftDrawablePadding="0dp"
+        app:classic_leftText="返回"
+        app:classic_centerDrawable="@drawable/ic_home_black_24dp"
+        app:classic_centerDrawableExchange="true"
+        app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp"
+        app:classic_rightDrawablePadding="2dp"
+        app:classic_rightText="菜单" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerText="标题"
+        app:classic_leftDrawable="@drawable/ic_chevron_left_black_24dp"
+        app:classic_leftText="返回"
+        app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp"
+        app:classic_rightDrawablePadding="-8dp"
+        app:classic_rightText="菜单" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerDrawableExchange="true"
+        app:classic_centerText="标题"
+        app:classic_leftDrawable="@drawable/ic_location_on_black_24dp"
+        app:classic_leftDrawableExchange="true"
+        app:classic_leftText="定位"
+        app:classic_rightDrawable="@drawable/ic_share_black_24dp" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerDrawable="@drawable/ic_home_black_24dp"
+        app:classic_centerText="标题"
+        app:classic_leftDrawable="@drawable/ic_chevron_left_black_24dp"
+        app:classic_rightDrawable="@drawable/ic_chevron_right_black_24dp" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerDrawable="@drawable/ic_home_black_24dp"
+        app:classic_leftText="返回上级"
+        app:classic_rightText="消息分享" />
+
+    <com.classichu.library.widget.ClassicTitleBar
+        style="@style/ClassicTitleBar"
+        android:layout_marginTop="2dp"
+        app:classic_centerMaxWidth="240dp"
+        app:classic_centerText="新闻详细新闻详细新闻详细新闻详细新闻详细"
+        app:classic_leftText="返回"
+        app:classic_rightText="分享" />
+
     <TextView
         android:id="@+id/id_tv_next"
         android:layout_width="match_parent"

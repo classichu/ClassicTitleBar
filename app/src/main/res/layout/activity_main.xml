@@ -14,6 +14,7 @@
         app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp" />
 
     <com.classichu.library.widget.ClassicTitleBar
+        android:id="@+id/id_classic_title_bar2"
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerText="标题"

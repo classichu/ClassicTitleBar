@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClassicTitleBar">
+        <attr name="classic_leftAndRightTextColor" format="reference|color" />
+        <attr name="classic_centerTextColor" format="reference|color" />
+
+        <attr name="classic_leftAndRightTextSize" format="reference|dimension" />
+        <attr name="classic_centerTextSize" format="reference|dimension" />
+
+        <attr name="classic_leftAndRightPadding" format="reference|dimension" />
+        <attr name="classic_centerPadding" format="reference|dimension" />
+
+        <attr name="classic_leftMaxWidth" format="reference|dimension" />
+        <attr name="classic_rightMaxWidth" format="reference|dimension" />
+        <attr name="classic_centerMaxWidth" format="reference|dimension" />
+
+        <attr name="classic_leftText" format="reference|string" />
+        <attr name="classic_rightText" format="reference|string" />
+        <attr name="classic_centerText" format="reference|string" />
+
+        <attr name="classic_leftDrawable" format="reference" />
+        <attr name="classic_centerDrawable" format="reference" />
+        <attr name="classic_rightDrawable" format="reference" />
+
+        <attr name="classic_centerDrawablePadding" format="reference|dimension" />
+        <attr name="classic_leftDrawablePadding" format="reference|dimension" />
+        <attr name="classic_rightDrawablePadding" format="reference|dimension" />
+
+    </declare-styleable>
+</resources>

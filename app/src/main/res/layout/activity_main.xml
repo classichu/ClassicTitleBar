@@ -107,10 +107,10 @@
     <TextView
         android:id="@+id/id_tv_next"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Go To Next Aty"
+        android:text="Hello Classic"
         android:textSize="@dimen/classic_text_size_primary" />
 
 </LinearLayout>

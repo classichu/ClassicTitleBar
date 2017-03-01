@@ -70,6 +70,8 @@
             android:ellipsize="end"
             android:gravity="center"
             android:lines="1"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
             android:maxWidth="180dp"
             android:textColor="@color/white"
             android:textSize="@dimen/classic_text_size_big"

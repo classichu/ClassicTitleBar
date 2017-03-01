@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -247,7 +248,7 @@ public class ClassicTitleBar extends RelativeLayout {
     }
 
     public ClassicTitleBar setCenterTextSize(int size) {
-        mCenterText.setTextSize(TypedValue.COMPLEX_UNIT_PX,size);
+        mCenterText.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         return this;
     }
 
@@ -421,48 +422,64 @@ public class ClassicTitleBar extends RelativeLayout {
         mLeftLayout.setOnClickListener(new OnNotFastClickListener() {
             @Override
             protected void onNotFastClick(View v) {
-                if (mOnTitleBarItemClickListener != null) {
-                    mOnTitleBarItemClickListener.onLeftClick(v);
+                if (mOnTitleBarLeftItemClickListener != null) {
+                    mOnTitleBarLeftItemClickListener.onLeftClick(v);
                 }
             }
         });
         mRightLayout.setOnClickListener(new OnNotFastClickListener() {
             @Override
             protected void onNotFastClick(View v) {
-                if (mOnTitleBarItemClickListener != null) {
-                    mOnTitleBarItemClickListener.onRightClick(v);
+                if (mOnTitleBarRightItemClickListener != null) {
+                    mOnTitleBarRightItemClickListener.onRightClick(v);
                 }
             }
         });
+
         mCenterLayout.setOnClickListener(new OnNotFastClickListener() {
             @Override
             protected void onNotFastClick(View v) {
-                if (mOnTitleBarItemClickListener != null) {
-                    mOnTitleBarItemClickListener.onCenterClick(v);
+                if (mOnTitleBarCenterItemClickListener != null) {
+                    mOnTitleBarCenterItemClickListener.onCenterClick(v);
                 }
             }
         });
 
     }
 
-    private OnTitleBarItemClickListener mOnTitleBarItemClickListener;
+    private OnTitleBarLeftItemClickListener mOnTitleBarLeftItemClickListener;
+    private OnTitleBarRightItemClickListener mOnTitleBarRightItemClickListener;
+    private OnTitleBarCenterItemClickListener mOnTitleBarCenterItemClickListener;
 
-    public void setOnTitleBarItemClickListener(OnTitleBarItemClickListener onTitleBarItemClickListener) {
-        mOnTitleBarItemClickListener = onTitleBarItemClickListener;
+    public void setOnTitleBarLeftItemClickListener(OnTitleBarLeftItemClickListener listener) {
+        mOnTitleBarLeftItemClickListener = listener;
     }
 
-    public static abstract class OnTitleBarItemClickListener {
-        public void onLeftClick(View view) {
+    public void setOnTitleBarRightItemClickListener(OnTitleBarRightItemClickListener listener) {
+        mOnTitleBarRightItemClickListener = listener;
+    }
 
+    public void setOnTitleBarCenterItemClickListener(OnTitleBarCenterItemClickListener listener) {
+        mOnTitleBarCenterItemClickListener = listener;
+        //
+        if (listener!=null){
+            //设置点击反馈效果
+            mCenterLayout.setBackgroundResource(R.drawable.selector_classic_nav_item_bg);
+        }else{
+            ViewCompat.setBackground(mCenterLayout,null);
         }
+    }
 
-        public void onRightClick(View view) {
+    public interface OnTitleBarLeftItemClickListener {
+        void onLeftClick(View view);
+    }
 
-        }
+    public interface OnTitleBarRightItemClickListener {
+        void onRightClick(View view);
+    }
 
-        public void onCenterClick(View view) {
-
-        }
+    public interface OnTitleBarCenterItemClickListener {
+        void onCenterClick(View view);
     }
 
 }

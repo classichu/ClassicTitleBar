@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.classichu.library.helper.ClassicTitleBarMenuHelper;
-import com.classichu.library.helper.ClassicTitleBarMenuWindowHelper;
+import com.classichu.library.helper.ClassicTitleBarMoreWindowWindowHelper;
 import com.classichu.library.widget.ClassicTitleBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,17 +30,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mClassicTitleBar = (ClassicTitleBar) findViewById(R.id.id_classic_title_bar);
-        mClassicTitleBar.setOnTitleBarItemClickListener(new ClassicTitleBar.OnTitleBarItemClickListener() {
+        mClassicTitleBar.setOnTitleBarCenterItemClickListener(new ClassicTitleBar.OnTitleBarCenterItemClickListener() {
             @Override
-            public void onRightClick(View view) {
-                super.onRightClick(view);
-                Toast.makeText(MainActivity.this, "onRightClick", Toast.LENGTH_SHORT).show();
+            public void onCenterClick(View view) {
+                Toast.makeText(MainActivity.this, "onCenterClick", Toast.LENGTH_SHORT).show();
             }
         });
-        mClassicTitleBar.setOnTitleBarItemClickListener(new ClassicTitleBar.OnTitleBarItemClickListener() {
+        mClassicTitleBar.setOnTitleBarRightItemClickListener(new ClassicTitleBar.OnTitleBarRightItemClickListener() {
             @Override
             public void onRightClick(View view) {
-                super.onRightClick(view);
                 //
                 ClassicTitleBarMenuHelper.initMenu(view, R.menu.menu_title_bar);
                 ClassicTitleBarMenuHelper.setOnMenuItemClickListener(new ClassicTitleBarMenuHelper.OnClassicTitleBarMenuItemClickListener() {
@@ -62,21 +60,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         ClassicTitleBar classicTitleBar2 = (ClassicTitleBar) findViewById(R.id.id_classic_title_bar2);
-        classicTitleBar2.setOnTitleBarItemClickListener(new ClassicTitleBar.OnTitleBarItemClickListener() {
+        classicTitleBar2.setOnTitleBarRightItemClickListener(new ClassicTitleBar.OnTitleBarRightItemClickListener() {
             @Override
             public void onRightClick(View view) {
-                super.onRightClick(view);
                 //
-                ClassicTitleBarMenuWindowHelper.initMenuWindow(view, R.layout.layout_title_bar_menu_window);
-                ClassicTitleBarMenuWindowHelper.setOnMenuItemClickListener(R.id.id_btn_next, new ClassicTitleBarMenuWindowHelper.OnMenuItemClickListener() {
+                ClassicTitleBarMoreWindowWindowHelper.initMoreWindow(view, R.layout.layout_title_bar_menu_window);
+                ClassicTitleBarMoreWindowWindowHelper.setOnMoreWindowItemClickListener(R.id.id_btn_next, new ClassicTitleBarMoreWindowWindowHelper.OnMoreWindowItemClickListener() {
                     @Override
-                    public void onMenuItemClick(View view) {
+                    public void onMoreWindowItemClick(View view) {
                         Toast.makeText(MainActivity.this, "id_btn_next", Toast.LENGTH_SHORT).show();
                     }
                 });
-                ClassicTitleBarMenuWindowHelper.setOnMenuItemClickListener(R.id.id_btn_share, new ClassicTitleBarMenuWindowHelper.OnMenuItemClickListener() {
+                ClassicTitleBarMoreWindowWindowHelper.setOnMoreWindowItemClickListener(R.id.id_btn_share, new ClassicTitleBarMoreWindowWindowHelper.OnMoreWindowItemClickListener() {
                     @Override
-                    public void onMenuItemClick(View view) {
+                    public void onMoreWindowItemClick(View view) {
                         Toast.makeText(MainActivity.this, "id_btn_share", Toast.LENGTH_SHORT).show();
                     }
                 });

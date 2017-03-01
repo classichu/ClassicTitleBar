@@ -10,10 +10,10 @@ import android.view.View;
 public class ClassicTitleBarMenuHelper {
 
     private static PopupMenu mPopupMenu;
-    public static void initMenu(View anchorView, int menuId) {
+    public static void initMenu(View anchorView, int menuResId) {
         //
         mPopupMenu = new PopupMenu(anchorView.getContext(), anchorView);
-        mPopupMenu.getMenuInflater().inflate(menuId, mPopupMenu.getMenu());
+        mPopupMenu.getMenuInflater().inflate(menuResId, mPopupMenu.getMenu());
         mPopupMenu.show();
     }
     public static void setOnMenuItemClickListener(OnClassicTitleBarMenuItemClickListener listener) {

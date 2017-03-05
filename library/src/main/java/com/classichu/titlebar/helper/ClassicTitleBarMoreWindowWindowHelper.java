@@ -1,4 +1,4 @@
-package com.classichu.library.helper;
+package com.classichu.titlebar.helper;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;

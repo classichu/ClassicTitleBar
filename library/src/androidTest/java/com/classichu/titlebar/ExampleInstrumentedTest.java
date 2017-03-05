@@ -1,4 +1,4 @@
-package com.classichu.library;
+package com.classichu.titlebar;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

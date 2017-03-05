@@ -1,4 +1,4 @@
-package com.classichu.library.widget;
+package com.classichu.titlebar.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,10 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.classichu.library.R;
-import com.classichu.library.helper.ImageOrVectorResHelper;
-import com.classichu.library.listener.OnNotFastClickListener;
-import com.classichu.library.tool.SizeTool;
+import com.classichu.titlebar.R;
+import com.classichu.titlebar.helper.ImageOrVectorResHelper;
+import com.classichu.titlebar.listener.OnNotFastClickListener;
+import com.classichu.titlebar.tool.SizeTool;
 
 /**
  * Created by louisgeek on 2017/2/27.

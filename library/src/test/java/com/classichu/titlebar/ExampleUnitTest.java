@@ -1,4 +1,4 @@
-package com.classichu.library;
+package com.classichu.titlebar;
 
 import org.junit.Test;
 

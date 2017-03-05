@@ -7,13 +7,13 @@
     android:orientation="vertical"
     tools:context="com.classichu.classictitlebar.MainActivity">
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         android:id="@+id/id_classic_title_bar"
         style="@style/ClassicTitleBar"
         app:classic_centerText="标题"
         app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         android:id="@+id/id_classic_title_bar2"
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
@@ -21,14 +21,14 @@
         app:classic_leftDrawable="@drawable/ic_arrow_back_black_24dp"
         app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerText="标题"
         app:classic_leftText="返回"
         app:classic_rightText="菜单" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerText="标题"
@@ -39,7 +39,7 @@
         app:classic_leftText="返回"
         app:classic_rightText="菜单" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerText="标题"
@@ -48,7 +48,7 @@
         app:classic_rightDrawable="@drawable/ic_more_vert_black_24dp"
         app:classic_rightText="菜单" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerText="标题"
@@ -61,7 +61,7 @@
         app:classic_rightDrawablePadding="2dp"
         app:classic_rightText="菜单" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerText="标题"
@@ -71,7 +71,7 @@
         app:classic_rightDrawablePadding="-8dp"
         app:classic_rightText="菜单" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerDrawableExchange="true"
@@ -81,7 +81,7 @@
         app:classic_leftText="定位"
         app:classic_rightDrawable="@drawable/ic_share_black_24dp" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerDrawable="@drawable/ic_home_black_24dp"
@@ -89,14 +89,14 @@
         app:classic_leftDrawable="@drawable/ic_chevron_left_black_24dp"
         app:classic_rightDrawable="@drawable/ic_chevron_right_black_24dp" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerDrawable="@drawable/ic_home_black_24dp"
         app:classic_leftText="返回上级"
         app:classic_rightText="消息分享" />
 
-    <com.classichu.library.widget.ClassicTitleBar
+    <com.classichu.titlebar.widget.ClassicTitleBar
         style="@style/ClassicTitleBar"
         android:layout_marginTop="2dp"
         app:classic_centerMaxWidth="240dp"

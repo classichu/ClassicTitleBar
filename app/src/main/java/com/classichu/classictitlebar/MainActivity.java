@@ -7,9 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.classichu.library.helper.ClassicTitleBarMenuHelper;
-import com.classichu.library.helper.ClassicTitleBarMoreWindowWindowHelper;
-import com.classichu.library.widget.ClassicTitleBar;
+import com.classichu.titlebar.helper.ClassicTitleBarMenuHelper;
+import com.classichu.titlebar.helper.ClassicTitleBarMoreWindowWindowHelper;
+import com.classichu.titlebar.widget.ClassicTitleBar;
 
 public class MainActivity extends AppCompatActivity {
     //开启vector

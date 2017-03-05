@@ -15,6 +15,11 @@ menu样式菜单
 
 ![3](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot3.png)
 
+
+
+[![](https://jitpack.io/v/classichu/ClassicTitleBar.svg)](https://jitpack.io/#classichu/ClassicTitleBar)
+
+
 Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
 

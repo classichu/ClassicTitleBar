@@ -2,13 +2,17 @@
 自定义标题栏 ClassicTitleBar CustomTitleBar
 
 
+
 标题栏
+
 ![1](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot.png)
 
 menu样式菜单
+
 ![2](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot2.png)
 
 自定义View样式菜单
+
 ![3](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot3.png)
 
 Step 1. Add the JitPack repository to your build file

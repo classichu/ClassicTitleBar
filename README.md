@@ -4,10 +4,29 @@
 
 标题栏
 ![1](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot.png)
+
 menu样式菜单
 ![2](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot2.png)
+
 自定义View样式菜单
 ![3](https://github.com/classichu/ClassicTitleBar/blob/master/screenshots/screenshot3.png)
+
+Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        compile 'com.github.classichu:ClassicDialogView:1.0.0'
+	}
+
+
 
 attrs
 

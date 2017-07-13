@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.classichu.titlebar.R;
 import com.classichu.titlebar.helper.ImageOrVectorResHelper;
-import com.classichu.titlebar.listener.OnNotFastClickListener;
 import com.classichu.titlebar.tool.SizeTool;
 
 /**
@@ -419,26 +418,26 @@ public class ClassicTitleBar extends RelativeLayout {
         mRightText = (TextView) view.findViewById(R.id.id_tv_right);
         mCenterText = (TextView) view.findViewById(R.id.id_tv_center);
 
-        mLeftLayout.setOnClickListener(new OnNotFastClickListener() {
+        mLeftLayout.setOnClickListener(new OnClickListener() {
             @Override
-            protected void onNotFastClick(View v) {
+            public void onClick(View v) {
                 if (mOnTitleBarLeftItemClickListener != null) {
                     mOnTitleBarLeftItemClickListener.onLeftClick(v);
                 }
             }
         });
-        mRightLayout.setOnClickListener(new OnNotFastClickListener() {
+        mRightLayout.setOnClickListener(new OnClickListener() {
             @Override
-            protected void onNotFastClick(View v) {
+            public void onClick(View v) {
                 if (mOnTitleBarRightItemClickListener != null) {
                     mOnTitleBarRightItemClickListener.onRightClick(v);
                 }
             }
         });
 
-        mCenterLayout.setOnClickListener(new OnNotFastClickListener() {
+        mCenterLayout.setOnClickListener(new OnClickListener() {
             @Override
-            protected void onNotFastClick(View v) {
+            public void onClick(View v) {
                 if (mOnTitleBarCenterItemClickListener != null) {
                     mOnTitleBarCenterItemClickListener.onCenterClick(v);
                 }
